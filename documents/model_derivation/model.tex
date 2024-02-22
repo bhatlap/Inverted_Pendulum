@@ -1,0 +1,112 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{ifthen}
+
+\newboolean{showsol}
+\setboolean{showsol}{true}
+
+
+\begin{document}
+	
+
+\section{Physical Model}
+
+\begin{itemize}
+	\item Cart position: $x(t)$
+	\item Pendulum center of gravity x-Position: $x_s(t)$
+	\item Pendulum center of gravity y-Position: $y_s(t)$
+	\item Pendulum angle measured from the top equilibium: $\theta(t)$
+	\item Pendulum length: $\ell$
+	\item Pendulum mass: $m$
+	\item Pendulum moment of inertia: $J = m\ell^2 / 12$
+	\item Angular friction coefficient: $b$
+	\item Contact forces between pendulum and cart: $F_x(t), F_y(t)$
+	\item Gravity constant: $g$
+\end{itemize}
+
+Kinematics:
+
+\begin{align*}
+x_s &= x - \frac{\ell}{2} \sin(\theta)\\
+\dot{x}_s &= \dot{x} - \frac{\ell}{2}\dot{\theta}\cos(\theta)\\
+\ddot{x}_s &= \ddot{x} - \frac{\ell}{2}\ddot{\theta}\cos(\theta) + \frac{\ell}{2}\dot{\theta}^2\sin(\theta)\\
+y_s &= \frac{\ell}{2}\cos(\theta)\\
+\dot{y}_s &= -\frac{\ell}{2}\dot{\theta}\sin(\theta)\\
+\ddot{y}_s &= -\frac{\ell}{2}\ddot{\theta}\sin(\theta)- \frac{\ell}{2}\dot{\theta}^2\cos{\theta}
+\end{align*}
+
+Force balance in x-direction of the pendulum:
+\begin{equation}\label{eq:xbalance}
+m \ddot{x}_s = F_x
+\end{equation}
+
+Force balance in y-direction of the pendulum:
+\begin{equation}\label{eq:ybalance}
+m \ddot{y}_s = F_y - mg
+\end{equation}
+
+Torque balance applied to the pendulum center of gravity:
+\begin{equation}\label{eq:torquebalance}
+J\ddot{\theta} = F_x \frac{\ell}{2}\cos(\theta) + F_y \frac{\ell}{2}\sin(\theta) - b\dot{\theta}
+\end{equation}
+
+Plug~\eqref{eq:xbalance} and~\eqref{eq:ybalance} into~\eqref{eq:torquebalance} to obtain
+\begin{equation}
+\left(J + m\frac{l^2}{4} \right) \ddot{\theta} = m \ddot{x} \frac{\ell}{2}\cos(\theta) + mg \frac{\ell}{2}\sin(\theta) - b\dot{\theta}
+\end{equation}
+Using $(J + ml^2/4) = ml^2/3$ this becomes
+\begin{equation}
+\ddot{\theta} = \frac{3 \cos(\theta)}{2 \ell} \ddot{x} + \frac{3 \sin(\theta)}{2\ell} g - \frac{3b}{m\ell^2} \dot{\theta}
+\end{equation}
+
+\section{Physical Model}
+\begin{equation}
+	\begin{aligned}
+		\ddot{\theta} &= \frac{3g}{2\ell} \sin(\theta)    -\frac{3b}{m\ell^2} \dot{\theta}              + \frac{3}{2\ell} \cos(\theta)u\\
+		\ddot{x} &= u 
+	\end{aligned}
+\end{equation}
+We can also redefine the friction coefficient $b'=\frac{3b}{m\ell^2}$, with this we get
+\begin{equation}
+	\begin{aligned}
+		\ddot{\theta} &= \frac{3g}{2\ell} \sin(\theta)    -b' \dot{\theta}              + \frac{3}{2\ell} \cos(\theta)u\\
+		\ddot{x} &= u. 
+	\end{aligned}
+\end{equation}
+\section{Mathematical Model}
+
+\begin{itemize}
+	\item States: 
+	\begin{itemize}
+		\item $x_1(t) \doteq \theta(t)$
+		\item $x_2(t) \doteq \dot{\theta}(t)$
+	\end{itemize}
+	\item Input:
+	\begin{itemize}
+		\item $u(t) \doteq \ddot{x}(t)$ i.e. input = cart acceleration
+	\end{itemize}
+	\item Outputs: 
+	\begin{itemize}
+		\item $y_1(t) = x_1(t)$ from pendulum encoder
+	   	\item $y_1(t) = x_3(t)$ from cart encoder
+	\end{itemize}
+\end{itemize}
+\begin{equation}
+\begin{bmatrix}
+\dot{x}_1 \\
+\dot{x}_2 \\
+\dot{x}_3 \\
+\dot{x}_4
+\end{bmatrix} = \begin{bmatrix}
+x_2\\
+\frac{3g}{2\ell} \sin(x_1)    -\frac{3b}{m\ell^2}x_2              + \frac{3}{2\ell} \cos(x_1)u \\
+x_3 \\
+u
+\end{bmatrix}
+\end{equation}
+	
+
+	
+\end{document}
