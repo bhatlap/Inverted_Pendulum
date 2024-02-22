@@ -1,0 +1,42 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Kurzfassung %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifinGerman
+
+\newcommand{\abstracttitle}{Kurzfassung}
+
+\else
+
+\newcommand{\abstracttitle}{Abstract}
+
+\fi
+
+\chapter*{\abstracttitle}
+\label{cha:abstract}
+
+\ifinGerman
+
+Hier steht die Kurzfassung.
+
+\section*{\huge Abstract \normalsize}
+
+Hier steht eine englische Version der Kurzfassung.
+
+\else
+
+The stabilization of unstable systems is an important area of research in the field of control systems engineering. Effective control strategies have their origins in human behaviour. The use of predictions of expected behaviour in determining a control strategy is intuitively apparent.
+
+This project explores the development of such a predictive algorithm, namely a model predictive control algorithm for the swing-up and stabilization of an Inverted Pendulum at the upper, unstable equilibrium point.  The inverted pendulum is a popular example for advanced control techniques due to the nature of the system, that is, a highly non-linear system with stabilization around an unstable equilibrium
+point.  
+
+The pendulum is mounted on a cart which is connected with a chain to the first encoder, that measures the movement of the cart. The second encoder measures the rotational dynamics of the pendulum.
+The developed predictive control algorithm utilizes optimal control to recalculate the input signal to the pendulum and decide the current control output. This recalculation allows the pendulum to reach the desired set point in an optimal fashion. The optimal control problem is built to be solved on a host pc, with Python the programming language of choice. The microcontroller unit on the pendulum, receives the encoder readings and sends it to the host pc. 
+
+Besides the control of the pendulum's angle, it is also necessary to control the angular velocity, linear position and linear velocity of the cart. The algorithm was able to stabilize the pendulum at the central position and in the upright position. 
+
+
+\fi
+

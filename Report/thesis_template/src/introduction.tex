@@ -1,0 +1,117 @@
+\chapter{Introduction}
+\label{cha:intro}
+
+
+\section{Motivation}
+
+In the realm of control systems, the inverted pendulum stands as a classic benchmark that fascinates both educators and students. In this project, we delve into the reasons behind the inverted pendulum's popularity as a control benchmark and test an advanced control scheme, namely model predictive control, on said benchmark.
+
+The motivation behind the popular choice of the inverted pendulum as an example for teaching control theory stems from its inherent complexity and non-linearity. Model predictive control, on the other hand, is a relatively young algorithm that combines the areas of optimal control and model-based feedback control to create a controller greater than the sum of its parts. 
+
+Designing and implementing control algorithms for the inverted pendulum gives practical insights into concepts such as feedback control, stability analysis, and system identification. In various domains, such as robotics, aerospace, and automation, systems exhibiting similar dynamics and control challenges can be found.
+
+In summary, the inverted pendulum's excellence as a popular control benchmark lies in its ability to demonstrate core principles of control theory in action, and establish connections to real-world systems. By mastering the control of the inverted pendulum, we acquire valuable skills and insights that are transferable to real-world applications, paving the way for innovation and progress in the field of control systems engineering
+
+\section{Existing Controllers}
+The control of inverted pendulum systems has been a topic of extensive research in the field of control systems engineering. Over the years, various controllers have been developed to tackle this task. The controllers implemented in the current iteration of the inverted pendulum involve two major controllers working in tandem, for the two major tasks involved in the control of the inverted pendulum: swing up and stabilization.
+
+\textbf{Energy-Based swing-up controller} addresses a crucial aspect of the inverted pendulum system, the swing-up maneuver. This involves imparting sufficient energy to the pendulum to raise it from the downward hanging position to the upright position. This controller focuses on achieving this energy transfer while simultaneously controlling the system's dynamics. By exploiting the system's potential energy, this controller allows for a smooth and efficient swing-up motion, paving the way for subsequent stabilization using other control techniques.
+
+\textbf{Linear Quadratic Regulator} (LQR) is effectively the simplest optimal controller. A classical control technique widely used for designing optimal control strategies for linear systems. It aims to find a control law that minimizes a quadratic cost function, considering both the system's states and control inputs. The LQR controller for the inverted pendulum system utilizes the system's linearised dynamics and employs state feedback to stabilize the pendulum in an upright position. By formulating the problem as an optimization task, the LQR controller provides an optimal control solution, effectively maintaining stability.
+
+The combination of the LQR controller and the energy-based swing-up controller forms the swing up and stabilization controller for the inverted pendulum system. The energy-based swing-up controller enables the system to transition from an unstable state to a controllable region, while the LQR controller maintains stability and optimal performance once the pendulum is upright. This combined approach allows for a comprehensive control strategy that addresses both the swing-up maneuver and the subsequent stabilization, ensuring the successful control of the inverted pendulum system.
+
+\section{Advanced Controllers}
+
+On further reading one can understand that there are many advanced control schemes that have been devised for the swing up and stabilization of the inverted pendulum system, as alluded to in \cite{Basuki2022,Oishi2018} and one of the frontrunners of these advanced control techniques is the concept of model predictive control. The reason for the popularity of MPC for this particular application are manifold, the primary reason is the ability of MPC to handle non-linear systems along with state and input constraints.
+This means that only one controller is necessary for both parts of the pendulum motion as swing up and stabilization can both be done by the same controller.  
+
+
+
+
+% \section{Remarks on the Writing Style}
+
+% Unlike in German, a comma is placed before the last element of a list if that list includes three or more elements in English. Example: popular car brands in Germany are Volkswagen, Audi, and Mercedes.
+
+% Write in the active voice and not in the passive voice. "Albert Einstein developed the special theory of relativity" is preferable to "The special theory of relativtiy was developed by Albert Einstein".
+
+% \section{Remarks on Equations}
+
+% Equations are always part of a sentence. For instance, the circumferene of a circle with radius $r$ is
+% \begin{equation}\label{eq:circ}
+% U = 2\pi r.
+% \end{equation}
+% Observe that the period finishing the sentence is part of formula~\eqref{eq:circ} and also observe how labelling the equation in the Latex source code allows to place a reference.
+
+% Use the \texttt{align} command to align equations in multiple rows. Use the \texttt{subequations} command for semantically related equations such as optimization problems with an equation for the objective and equations for the constraints. An example is the Nonlinear Program (NLP)
+
+% \begin{subequations}\label{eq:NLP}
+% 	\begin{align}
+% 	\min_x \quad &f(x) \\
+% 	\text{subject to  } g(x)&=0\\
+% 	h(x) &\leq 0.
+% 	\end{align}
+% \end{subequations}
+
+% Physical units are written in solid font and not in italic font. 
+% There should be a semi-space in between the number and the unit, as in $1\,$V.
+% The~\texttt{SI} latex package may help you.
+
+
+% \section{Remarks on Figures}
+
+% Having a list of figures at the beginning of your thesis is benefitial, but not mandatory.
+
+% Every figure must have a caption which describes the content. Ideally, the key message which is conveyed by a figure is summarized in one sentence at the end of the caption.
+
+% Every figure must be referenced in the text.
+
+% Graphs and plots must be displayed as vector graphics. Popular options for this are to include \texttt{.eps} files generated with Matlab, Python, and Julia or \texttt{tikz} pictures. If you use \texttt{tikz} and Matlab, then the \texttt{matlab2tikz} package can hlep you.
+
+% Text within a figure should be sufficiently large to be easily readable. 
+
+% If a figure is taken from another source, then the reference must be cited wtihin the caption.
+
+
+% \section{Remarks on Tables}
+
+% Having a list of tables at the beginning of your thesis is benefitial, but not mandatory.
+
+% All tables need a caption and must be referenced in the text.
+
+% Do not draw vertical lines in tables to separate columns.
+
+% \section{Remarks on Citations}
+% It is preferable to place citations at the end of a sentence. For instance, the design of stabilizing terminal ingredients in optimal control problems is discussed in~\cite{Chen1998}. 
+
+% Imagine the following situation: you read in source A that source B proved a result you wish to use. It would be plagiarism to simply cite source A for this result! Instead you have to find source B, find the result in source B, and then cite source B for the result. If you cannot find source B, then you cite~"\cite{B} according to~\cite{A}". But you should try really hard to find source B.
+
+% Give accurate citations, especially for textbooks or large documents. That is, you should either refer to a specific equation, theorem, figure, or page in a source. For instance, the two norm of a matrix is defined as the largest singular eigenvalue~\cite[p. 88]{Hespanha2018}.
+
+
+
+% Helpful resources:
+% \begin{itemize}
+% 	\item Good scientific practice at TU Dortmund University: \url{https://www.tu-dortmund.de/en/research/research-ethics/good-scientific-practice/}
+% 	\item Course on writing in the sciences by Kristin Sainani, Stanford~\url{https://www.youtube.com/watch?v=HxSu-FQ0yl40}
+% 	\item Ten rules for mathematical writing by Dimitri Bertsekas~\url{https://www.mit.edu/~dimitrib/Ten_Rules.pdf}
+% \end{itemize}
+
+% \chapter{Latex}
+
+% \section{Labels and References}
+
+% Latex allows you to place references to chapters, sections, subsections, equations, figures, tables, and further environments via the \texttt{ref} command.
+% It is convenient to use \texttt{eqref} to refer to equations, because \texttt{eqref} automatically adds the required parentheses.
+% A good strategy is to give meaningful labels to environments. For instance, \texttt{eq:NLP} is a fitting label for NLP~\eqref{eq:NLP}.
+% Popular prefixes are
+% \begin{itemize}
+% 	\item \texttt{eq} for equations
+% 	\item \texttt{fig} for figures
+% 	\item \texttt{tab} for tables
+% 	\item \texttt{ch} for chapters
+% 	\item \texttt{sec} for sections
+% 	\item \texttt{thm} for theorems
+% \end{itemize} and many more.
+
+

@@ -1,0 +1,139 @@
+%Personal information
+\newcommand{\autor}{Anuar Nurlybayev, Pawan Bhatla, Rahul Panicker}
+\newcommand{\name}{Anuar Nurlybayev, Pawan Bhatla, Rahul Panicker}
+\newcommand{\studiengang}{Automation and Robotics}
+\newcommand{\matrikelnr}{234194, 235951, 236536}
+\newcommand{\titel}{Model Predictive Control of an Inverted Pendulum}
+\newcommand{\art}{Project Group}
+\newcommand{\jahr}{2023}
+\newcommand{\ausgabetag}{21.\,10.~2022}
+\newcommand{\abgabetag}{31.\,07.~2023}
+\newcommand{\abgabemonat}{July}
+\newcommand{\abgabejahr}{2023}
+\newcommand{\nummer}{ie3}
+\newcommand{\uni}{Technische Universit�t Dortmund}
+\newcommand{\urlieee}{http://www.ie3.tu-dortmund.de}
+\newcommand{\professor}{Prof.~Dr.-Ing.~Timm~Faulwasser}
+\newcommand{\secondexaminor}{Jens P\"uttschneider, M.Sc.}
+\newcommand{\betreuer}{Vorname Nachname}
+\newcommand{\cobetreuer}{Vorname Nachname}
+
+
+
+\documentclass[
+   11pt,                	% Schriftgr��e 11pt
+   paper=a4,            	% Layout f�r Din A4
+   twoside,             	% Layout f�r beidseitigen Druck
+   headinclude,         	% Kopfzeile wird Seiten-Layouts mit ber�cksichtigt
+   headsepline,         	% horizontale Linie unter Kolumnentitel
+   plainheadsepline,   	 	% horizontale Linie auch beim plain-Style
+   BCOR12mm,            	% Korrektur f�r die Bindung
+   DIV=15,              	% DIV-Wert fuer die Erstellung des Satzspiegels, siehe scrguide
+   parskip=half,        	% Absatzabstand statt Absatzeinzug
+   toc=bibliography,	 	% Literaturverzeichnis wird ins Inhaltsverzeichnis eingetragen
+   numbers=noenddot			% Kapitelnummern immer ohne Punkt
+   openany		]    
+   {scrbook}			   			% scrbook-Version mind. 2.8j von 2001/07/30  
+
+
+\usepackage[ansinew]{inputenc}		% erm�glicht direkte Eingabe von Umlauten. Auch m�glich: latin9, latin1, utf8(?)
+\usepackage[T1]{fontenc}			% setzt Kodierung des Ausgabezeichensatzes. T1: Zeichensatz mit Umlauten
+%\usepackage[ngerman]{babel}			% Silbentrennung gem�� neuer deutscher Rechtschreibung; comment this line out if you write in English
+\usepackage[english]{babel}		% comment this line out, if you write in German
+\usepackage{amssymb,amsmath}		% Mathematikumgebung
+\usepackage{ifthen}					% if-then-Umgebung
+\usepackage{graphicx}				% zur besseren Einbindung von Grafiken
+\usepackage{xcolor}					% notwendig f�r Farben in der picture-Umgebung (-> TpX, TexCAD etc.)
+\usepackage{nomencl}				% automatische Nomenklatur / Abk�rzungsverzeichnis
+\usepackage{url}					% erm�glicht die Ausgabe von URLs als anklickbare Links
+\usepackage{scrlayer-scrpage}       % Kopf und Fusszeilen-Layout 
+\usepackage[printonlyused, withpage]{acronym}
+\usepackage[hidelinks]{hyperref}
+\usepackage{pdfpages}				% includepdf
+\usepackage[style=ieee,backend=bibtex,url=false,doi=false,isbn=false,date=year,citestyle=numeric-comp,maxbibnames=10,minbibnames=10,maxcitenames=10,mincitenames=10]{biblatex}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[algo2e]{algorithm2e}
+\usepackage{pgffor}
+
+
+
+\KOMAoptions{cleardoublepage=empty}						% Vakantseiten sind leere Seiten (plain = Nummerierung)
+\setkomafont{disposition}{\normalcolor\bfseries}		% verwendet die Serifenschrift auch f�r �berschriften
+
+
+\def\bflabel#1{{{\textsf{#1}}\hfill}}
+
+
+\newboolean{inGerman}
+
+
+% Kopf- und Fu�zeile
+\pagestyle{scrheadings}
+\setlength{\headheight}{1.1\baselineskip}				% Kofzeilenh�he ver�ndern
+\ihead[]{\headmark}              						% Kolumnentitel immer oben innen
+\ohead[\pagemark]{\pagemark}     						% Seitennummern immer oben aussen
+\ofoot[]{}                       						% Seitennummern in der Fusszeile l�schen
+
+
+% vermeidet einzelne Zeilen oben und unten auf einer Seite
+\clubpenalty = 10000
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000
+
+\bibliography{lit.bib}			% Literaturverzeichnis (Odner/Verzeichnis)
+
+					
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% main document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%		\setboolean{inGerman}{true} %uncomment this line if the thesis is in English
+
+		\frontmatter
+			\include{src/cover}
+			\cleardoubleemptypage			
+			%\include{src/task}
+			%\cleardoubleemptypage			
+			%\includepdf{Eidesstattliche_Versicherung.pdf}
+			%\cleardoubleemptypage			
+			\include{src/abstract}
+			\tableofcontents
+			\cleardoubleemptypage
+			%\include{src/acronyms}
+			%\cleardoubleemptypage
+			\listoffigures
+			\cleardoubleemptypage
+			%\listoftables
+			%\cleardoubleemptypage
+			
+			
+			%Genereller Aufbau einer Abschlussarbeit - Hauptteil
+				% 1 Einleitung
+				% 2 Theoretische Grundlagen
+				% 3 versuchsaufbau/Simulationsmodell
+				% 4 Versuchsdurchf�hrung/Simulation und Ergebnisse
+				% 5 Diskussion der Simulationsergebnisse
+				% 6 Zusammenfassung und Ausblick
+				% Anhang
+				% Literaturverzeichnis
+			
+		\mainmatter
+			
+		 	\include{src/introduction}
+		 	%include further chapters here
+		 	\include{src/Chapter1}
+            \include{src/Chapter2}
+            \include{src/Chapter3}
+            \include{src/Chapter4}
+		
+			
+		\backmatter
+			\printbibliography
+\end{document}

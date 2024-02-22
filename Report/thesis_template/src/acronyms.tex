@@ -1,0 +1,26 @@
+%%% acronyms
+
+% \acro{acronym}[short name]{full name}
+
+% \acro{H2O}[$\mathrm{H_2O}$]{water}
+% Then \acs{H2O} gets "H2O" and \acl{H2O} prints "water".
+
+%\acrodefplural{ACRONYM}[kuze Pluralform]{lange Pluralform}
+%\acrodefplural{BUT}[BUTs]{Blocks Under Test}
+
+\ifinGerman
+
+\chapter*{Abkürzungsverzeichnis}
+
+\else
+
+\chapter*{Acronyms}
+\fi
+\label{cha:acronym}
+
+\begin{acronym}[SCOPF]
+	\acro{OCP}{Optimal Control Problem}
+	\acro{MPC}{Model Predictive Control}
+	\acro{LQR}{Linear Quadratic Regulator}
+	\acrodefplural{CoG}{Center Of Gravity}
+\end{acronym}

@@ -1,0 +1,27 @@
+\chapter{Conclusion}\label{chap:fifth chapter}
+
+In this chapter we will go over the conclusions drawn from this project and discuss the scope of future projects on this system. 
+
+The complete control system consists of a host PC which is used for computation purposes and an inverted pendulum, produced by Optimal Control Labs, s.r.o. The main aim of this project is to stabilize the pendulum in the upright position at the centre of the rail. This pendulum uses it's in built sensors to measure and/or calculate the states, and is able to provide near perfect state feedback.
+
+Considering the initial requirements, the MPC algorithm does indeed stabilize the pendulum in an upright position. The system responds well to slight disturbances of the pendulum at the unstable equilibrium. Therefore, the requirements of the project have been met successfully. 
+
+\section{Outlook}
+
+The findings suggest that MPC is a promising approach for controlling inverted pendulum systems and other complex and unstable systems. We believe that further work should focus on the following aspects to further enhance the application of MPC in this domain:
+
+\begin{itemize}
+	
+	\item \textbf{Observer based MPC}: In this project, we were reliant on the system for state feedback, which though mostly accurate, could be improved. State observers like the Kalman filter which reduces the impact of measurement and process noise on the state estimates could be implemented for smoother and more accurate control. 
+	
+	\item  \textbf{Advanced MPC Algorithms}: Investigating and developing more advanced MPC algorithms can help in improving control performance. Strategies like multi-stage or tube based MPC are promising avenues to look into in this regard.
+	
+	\item \textbf{Embedded MPC}: As mentioned in Chapter \ref{chap:third chapter} the optimization was performed on the host PC due to the computational complexity of the MPC algorithm. But there is a way to circumvent this. Embedded MPC involves the condensing of the QP and reducing the memory requirement, enough so to perform it on embedded hardware.
+	
+	\item \textbf{Machine Learning Integration}: Like mentioned before, exploring more complex control algorithms is an encouraging path in moving forward and the next logical step is the integration of machine learning techniques into these control strategies.These methods, like explicit MPC, can lead to less computation heavy control algorithms, which may decrease control complexity and greatly improve overall performance.
+	
+	
+\end{itemize}
+
+
+In conclusion, MPC offers a powerful and robust control strategy for stabilizing an inverted pendulum system. By further refining the control algorithms, optimizing implementation, and exploring new applications, MPC can continue to play a vital role in addressing challenging control problems in various fields.
